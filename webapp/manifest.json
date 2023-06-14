@@ -24,7 +24,7 @@
                         "ZUI_FE_BOOKING_001125_O2_VAN",
                         "annotation"
                     ],
-                    "localUri": "localService/metadata.xml",
+                    "localUri": "localService/mainService/metadata.xml",
                     "odataVersion": "2.0"
                 }
             },
@@ -32,7 +32,7 @@
                 "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZUI_FE_BOOKING_001125_O2_VAN',Version='0001')/$value/",
                 "type": "ODataAnnotation",
                 "settings": {
-                    "localUri": "localService/ZUI_FE_BOOKING_001125_O2_VAN.xml"
+                    "localUri": "localService/mainService/ZUI_FE_BOOKING_001125_O2_VAN.xml"
                 }
             },
             "annotation": {
@@ -40,6 +40,15 @@
                 "uri": "annotations/annotation.xml",
                 "settings": {
                     "localUri": "annotations/annotation.xml"
+                }
+            },
+            "zui_fe_travel_001125_o4": {
+                "uri": "/sap/opu/odata4/sap/zui_fe_travel_001125_o4/srvd/sap/zui_fe_travel_001125_o4/0001/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/zui_fe_travel_001125_o4/metadata.xml",
+                    "odataVersion": "4.0"
                 }
             }
         }
@@ -103,6 +112,16 @@
             "@i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "uri": "i18n/i18n.properties"
+            },
+            "zui_fe_travel_001125_o4": {
+                "dataSource": "zui_fe_travel_001125_o4",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
             }
         },
         "resources": {
@@ -132,8 +151,71 @@
                     "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#FlightPriceColumn",
                     "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#ToBookingAnalysis"
                 }
+            },
+            "CARD_002": {
+                "model": "mainModel",
+                "template": "sap.ovp.cards.linklist",
+                "settings": {
+                    "title": "Quick Links",
+                    "listFlavor": "standard",
+                    "staticContent": [
+                        {
+                            "title": "Create Travel",
+                            "imageUri": "sap-icon://create",
+                            "imageAltText": "{{card30_icon_so_man}}",
+                            "targetUri": "https://sap.com",
+                            "openInNewWindow": true
+                        },
+                        {
+                            "title": "Manage Travel",
+                            "imageUri": "sap-icon://edit",
+                            "imageAltText": "{{card30_icon_so_man}}",
+                            "targetUri": "https://sap.com",
+                            "openInNewWindow": true
+                        },
+                        {
+                            "title": "Airport Status",
+                            "imageUri": "sap-icon://message-information",
+                            "imageAltText": "{{card30_icon_so_man}}",
+                            "targetUri": "https://sap.com",
+                            "openInNewWindow": true
+                        },
+                        {
+                            "title": "Location Guides",
+                            "imageUri": "sap-icon://functional-location",
+                            "imageAltText": "{{card30_icon_so_man}}",
+                            "targetUri": "https://sap.com",
+                            "openInNewWindow": true
+                        },
+                        {
+                            "title": "Travel Warnings",
+                            "imageUri": "sap-icon://alert",
+                            "imageAltText": "{{card30_icon_so_man}}",
+                            "targetUri": "https://sap.com",
+                            "openInNewWindow": true
+                        },
+                        {
+                            "title": "Rental Car Booking",
+                            "imageUri": "sap-icon://car-rental",
+                            "imageAltText": "{{card30_icon_so_man}}",
+                            "targetUri": "https://sap.com",
+                            "openInNewWindow": true
+                        }
+                    ]
+                }
+            },
+            "CARD_003": {
+                "model": "mainModel",
+                "template": "sap.ovp.cards.charts.analytical",
+                "settings": {
+                    "title": "Spending By Airlines",
+                    "entitySet": "Booking",
+                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#ToBookingAnalysis",
+                    "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#FlightPriceByAirlineDonut"
+                }
             }
         }
+        
     },
     "sap.fiori": {
         "registrationIds": [],
